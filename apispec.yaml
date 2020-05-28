@@ -1,0 +1,77 @@
+openapi: 3.0.2
+info:
+  title: Sample1
+  version: 1.0.0
+paths:
+  /books:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+          description: get book list
+  /books/{bookId}:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+          description: get a book
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+        required: true
+      responses:
+        "204":
+          description: update book
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+        required: true
+      responses:
+        "201":
+          description: create book
+    delete:
+      responses:
+        "204":
+          description: delete book
+    parameters:
+    - name: bookId
+      description: Book ID
+      schema:
+        type: string
+      in: path
+      required: true
+components:
+  schemas:
+    Book:
+      title: Root Type for Book
+      description: ""
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
+        author2:
+          type: string
+      example:
+        id: "1"
+        title: TITLE
+        author: AUTHOR
+        author2: AUTHOR2
+
