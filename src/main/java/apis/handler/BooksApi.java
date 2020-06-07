@@ -7,8 +7,6 @@ package apis.handler;
 
 import apis.model.Book;
 import io.swagger.annotations.*;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -19,22 +17,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-05-28T15:38:15.832335+09:00[Asia/Tokyo]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-06-07T17:01:10.348764+09:00[Asia/Tokyo]")
 
 @Validated
 @Api(value = "books", description = "the books API")
 public interface BooksApi {
 
-    default Optional<NativeWebRequest> getRequest() {
-        return Optional.empty();
+    default BooksApiDelegate getDelegate() {
+        return new BooksApiDelegate() {};
     }
 
     /**
@@ -49,8 +45,7 @@ public interface BooksApi {
     @RequestMapping(value = "/books/{bookId}",
         method = RequestMethod.DELETE)
     default ResponseEntity<Void> booksBookIdDelete(@ApiParam(value = "Book ID",required=true) @PathVariable("bookId") String bookId) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        return getDelegate().booksBookIdDelete(bookId);
     }
 
 
@@ -67,17 +62,7 @@ public interface BooksApi {
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     default ResponseEntity<Book> booksBookIdGet(@ApiParam(value = "Book ID",required=true) @PathVariable("bookId") String bookId) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : \"1\", \"title\" : \"TITLE\", \"author\" : \"AUTHOR\", \"author2\" : \"AUTHOR2\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        return getDelegate().booksBookIdGet(bookId);
     }
 
 
@@ -95,8 +80,7 @@ public interface BooksApi {
         consumes = { "application/json" },
         method = RequestMethod.POST)
     default ResponseEntity<Void> booksBookIdPost(@ApiParam(value = "Book ID",required=true) @PathVariable("bookId") String bookId,@ApiParam(value = "" ,required=true )  @Valid @RequestBody Book book) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        return getDelegate().booksBookIdPost(bookId, book);
     }
 
 
@@ -114,8 +98,7 @@ public interface BooksApi {
         consumes = { "application/json" },
         method = RequestMethod.PUT)
     default ResponseEntity<Void> booksBookIdPut(@ApiParam(value = "Book ID",required=true) @PathVariable("bookId") String bookId,@ApiParam(value = "" ,required=true )  @Valid @RequestBody Book book) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        return getDelegate().booksBookIdPut(bookId, book);
     }
 
 
@@ -131,17 +114,7 @@ public interface BooksApi {
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     default ResponseEntity<List<Book>> booksGet() {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : \"1\", \"title\" : \"TITLE\", \"author\" : \"AUTHOR\", \"author2\" : \"AUTHOR2\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        return getDelegate().booksGet();
     }
 
 }

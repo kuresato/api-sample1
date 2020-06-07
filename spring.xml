@@ -51,6 +51,8 @@
                                 <modelPackage>apis.model</modelPackage>
                                 <invokerPackage>apis.invoke</invokerPackage>
                                 <configPackage>apis.configuration</configPackage>
+
+                                <delegatePattern>true</delegatePattern>
                             </configOptions>
 
                             <output>${project.basedir}</output>
