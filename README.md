@@ -13,7 +13,12 @@ API仕様 apispec.xml を作成して
 ```
 
 参考
+- [openapi-generator/modules/openapi-generator-maven-plugin at master · OpenAPITools/openapi-generator · GitHub](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin)
+- [Config Options for spring](https://openapi-generator.tech/docs/generators/spring)
 - [API-First Development with Spring Boot and Swagger](https://reflectoring.io/spring-boot-openapi/)
+- [Spring Boot Actuator: 本番対応機能](https://spring.pleiades.io/spring-boot/docs/current/reference/html/production-ready-features.html)
+- [Spring Boot 2.0のActuator、とりあえず動かすために知っておきたい変更点3つ](https://qiita.com/suke_masa/items/acfdf52019538fd8ccc6)
+- [Spring Boot Actuator 2のエンドポイントを叩いてみる | 川上徹](https://xn--fhqq99a3lb.jp/374)
 
 
 ## Overview  
