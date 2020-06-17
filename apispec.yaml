@@ -8,7 +8,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            application/json;charset=UTF-8:
               schema:
                 type: array
                 items:
@@ -19,7 +19,7 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Book'
           description: get a book
@@ -54,6 +54,7 @@ paths:
         type: string
       in: path
       required: true
+      example: 1
 components:
   schemas:
     Book:
